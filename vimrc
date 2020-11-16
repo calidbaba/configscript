@@ -21,6 +21,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+"fzf
+nmap <C-F> :
+
 "highlight search
 set hlsearch
 
@@ -31,5 +34,7 @@ set nocompatible
 filetype plugin on
 call plug#begin()
 Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
