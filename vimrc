@@ -12,6 +12,10 @@ color slate
 
 let mapleader =" "
 
+"keybindings fra teddy
+nnoremap <leader>w :w<CR>
+set mouse=a
+
 set expandtab ts=4 sw=4 ai
 > 
 imap jj <Right><Esc>
@@ -25,6 +29,9 @@ noremap <Right> <NOP>
 
 "fzf
 nmap <C-f> :Files .<CR>
+nmap <C-g> :Rg<CR>
+
+
 
 "highlight search
 set hlsearch
