@@ -10,8 +10,10 @@ color slate
 "map <C-n> :NERDTreeToggle<CR> 
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+let mapleader =" "
 
 set expandtab ts=4 sw=4 ai
+> 
 imap jj <Right><Esc>
 inoremap {<CR>  {<CR>}<Esc>O
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -22,11 +24,11 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 "fzf
-nmap <C-F> :
+nmap <C-f> :Files .<CR>
 
 "highlight search
 set hlsearch
-
+nnoremap <leader>h :nohls<CR>
 set autoindent
 
 "til vimwiki
