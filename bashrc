@@ -125,3 +125,6 @@ fi
 alias sshc='ssh carlaar@cassarossa.samfundet.no'
 
 export funka="jaman"
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
