@@ -29,7 +29,7 @@ noremap <Right> <NOP>
 
 "fzf
 nmap <C-f> :Files .<CR>
-nmap <C-g> :Rg<CR>
+nmap <C-a> :Rg<CR>
 
 
 
