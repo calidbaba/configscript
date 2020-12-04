@@ -20,8 +20,11 @@ set expandtab ts=4 sw=4 ai
 > 
 imap jj <Right><Esc>
 inoremap {<CR>  {<CR>}<Esc>O
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <C-l> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <C-l> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType javascript map <buffer> <C-l> :w<CR>:!node %<CR>
+autocmd FileType javascript imap <buffer> <C-l> <esc>:w<CR>:!node %<CR>
+"map <F10> :!node %<CR>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -29,8 +32,10 @@ noremap <Right> <NOP>
 
 "fzf
 nmap <C-f> :Files .<CR>
-nmap <C-a> :Rg<CR>
+nmap <C-g> :Rg<CR>
 
+"asm
+autocmd BufRead,BufNewFile   *.asm setlocal ft=nasm
 
 
 "highlight search
@@ -43,6 +48,7 @@ set nocompatible
 filetype plugin on
 call plug#begin()
 Plug 'vimwiki/vimwiki'
+Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
