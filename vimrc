@@ -11,6 +11,8 @@ Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'yuezk/vim-js'
 "Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
@@ -21,7 +23,7 @@ syntax on
 autocmd vimenter * ++nested colorscheme gruvbox
 colorscheme gruvbox
 set background=dark
-"set mouse=a
+set mouse=a
 let mapleader =" "
 "relativ number
 :set number relativenumber
@@ -52,7 +54,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "inoremap <Tab> <C-R>=CleverTab()<CR>
 
 "keybindings fra teddy
-nnoremap <leader>w :w<CR>
+nnoremap <leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q <C-w>o
 set expandtab ts=4 sw=4
@@ -74,8 +76,8 @@ autocmd FileType javascript map <buffer> <F9> :w<CR>:!node %<CR>
 autocmd FileType javascript imap <buffer> <F9> <esc>:w<CR>:!node %<CR>
 autocmd FileType sh map <buffer> <F9> :w<CR>:!/bin/bash %<CR>
 autocmd FileType sh imap <buffer> <F9> <esc>:w<CR>:!/bin/bash %<CR>
-autocmd FileType c map <buffer> <F9> :w<CR>:!gcc % -o %:r<CR>./%<CR>
-autocmd FileType c imap <buffer> <F9> <esc>:w<CR>:!gcc % -o %:r<CR>./%<CR>
+autocmd FileType c imap <buffer> <F9> <esc>:w<CR>:!gcc % -o %< && ./%< <CR>
+autocmd FileType c map <buffer> <F9> <esc>:w<CR>:!gcc % -o %< && ./%< <CR>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
