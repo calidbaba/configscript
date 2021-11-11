@@ -11,6 +11,7 @@ Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
+Plug 'tpope/vim-commentary'
 "Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
@@ -18,10 +19,10 @@ call plug#end()
 set number
 set laststatus=2
 syntax on
-autocmd vimenter * ++nested colorscheme gruvbox
+"autocmd vimenter * ++nested colorscheme gruvbox
 colorscheme gruvbox
 set background=dark
-"set mouse=a
+set mouse=a
 let mapleader =" "
 "relativ number
 :set number relativenumber
@@ -84,9 +85,9 @@ noremap <Right> <NOP>
 "fzf
 nmap <C-f> :vsplit<CR>:Files<CR>
 nmap <C-g> :vsplit<CR>:Rg<CR>
-nmap <leader>f :Files<CR>
+nmap <leader>f :GFiles<CR>
 nmap <leader>g :Rg<CR>
-nmap <leader>F :Files ~<CR>
+nmap <leader>F :GFiles ~<CR>
 "nmap <leader>G :vsplit<CR>:Rg ~<CR>
 "asm
 "autocmd BufRead,BufNewFile   *.asm setlocal ft=nasm
@@ -104,3 +105,5 @@ inoremap [[ []<Esc>i
 inoremap << <><Esc>i
 inoremap '' ''<Esc>i
 inoremap "" ""<Esc>i
+noremap <leader>b :e#<CR>
+
