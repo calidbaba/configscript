@@ -1,15 +1,21 @@
 "/.config/nvim/init.vim
 
+"source needs relativePath
+function! SourceLocal(relativePath)
+  let root = "~/.config/nvim"
+  let fullPath = root . '/'. a:relativePath
+  exec 'source ' . fullPath
+endfunction
 "plugins
-source plug.vim
+call SourceLocal("plug.vim")
 "language server
-source coc.vim
+call SourceLocal("coc.vim")
 "keybindings
-source bindings.vim
+call SourceLocal("bindings.vim")
 "run command on <F9> based on filetype
-source run.vim
+call SourceLocal("run.vim")
 "different functions
-source function.vim
+call SourceLocal("functions.vim")
 
 
 set encoding=utf-8
