@@ -69,7 +69,7 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,15 +105,33 @@ alias rick='export CACA_DRIVER=ncurses; mplayer -really-quiet -vo caca ~/Videos/
 alias vim="nvim"
 alias off="sl | lolcat && shutdown now"
 alias clip="xclip -sel clip"
+paste="nc termbin.com 9999"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+#source /usr/share/doc/fzf/examples/key-bindings.zsh
+#source /usr/share/doc/fzf/examples/completion.zsh
 source /home/baba/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-alias work="sleep $((60*25)) && spd-say madafucka"
-alias brek="sleep $((60*5)) && spd-say madaoff"
+# alias work="sleep $((60*25)) && spd-say madafucka"
+# alias brek="sleep $((60*5)) && spd-say madaoff"
+alias river="mosh riverwood"
+alias river6="mosh 2001:67c:29f4::3333"
+work(){
+    sleep $((60*25))
+    if [[ $1 != -s ]]; then
+        spd-say madafucka
+    fi;
+    notify-send -t 5000 -u critical 'Work is over'
+}
+brek(){
+    sleep $((60*5))
+    if [[ $1 != -s ]]; then
+        spd-say madafucka
+    fi;
+    notify-send -t 5000 -u critical 'Get back to work'
+}
 pdf(){
     zathura $1 &!
 }
 alias mvlast="ls -t ~/Downloads | head -n1 | sed  's/ /\\\ /g' | xargs -t -I '{}' mv $HOME/Downloads/'{}' ."
+alias vpn="sudo openconnect -bq --user=carlaar vpn.ntnu.no"
 
