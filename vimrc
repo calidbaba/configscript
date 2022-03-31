@@ -1,21 +1,6 @@
 "/.vimrc
 "til vimwiki
 set nocompatible 
-filetype plugin on
-call plug#begin()
-Plug 'vimwiki/vimwiki'
-Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-Plug 'morhetz/gruvbox'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-Plug 'tpope/vim-commentary'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'yuezk/vim-js'
-"Plug 'ycm-core/YouCompleteMe'
-call plug#end()
 
 "basic
 set number
@@ -41,34 +26,13 @@ noremap <C-l> <C-w>l
 nnoremap <leader>s :vsplit .<CR>
 nnoremap <leader>v :split .<CR>
 
-"nerdtree
-map <C-n> :NERDTreeToggle<CR> 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" autocomplete
-"function! CleverTab()
-"   if strpart( getline('.'), 0, col('.')-1 ) =~ '^s*$'
-"       return "\<Tab>"
-"   else
-"       return "\<C-N>"
-"endfunction
-"inoremap <Tab> <C-R>=CleverTab()<CR>
-
 "keybindings fra teddy
 nnoremap <leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q <C-w>o
 set expandtab ts=4 sw=4
 
-"tmux + vim
-map <Leader>c :VimuxPromptCommand<CR> 
-map <Leader>e :VimuxRunLastCommand<CR>
-"map <M-h> <C-w>h
-"map <M-j> <C-w>j
-"map <M-k> <C-w>k
-"map <M-l> <C-w>l
 
-"map <A-t> :Ligma<CR>
 "kjøre filer
 imap jj <Right><Esc>
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
