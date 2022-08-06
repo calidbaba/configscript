@@ -17,13 +17,20 @@ exec /home/baba/battery-warning/battery.sh &
 set $mod Mod4
 
 #lock
-bindsym $mod+b exec i3lock
+bindsym $mod+b exec betterlockscreen --lock
+#autorandr
+bindsym $mod+shift+a exec autorandr -c
 
 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+#font pango:monospace 8
+font xft:URWGothic-Book 8
+exec --no-startup-id volumeicon
+bindsym $mod+s layout stacking
+#bindsym $mod+Shift+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,18 +41,18 @@ font pango:monospace 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#set $refresh_i3status killall -SIGUSR1 i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -89,7 +96,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+s split h
+#bindsym $mod+s split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -100,7 +107,6 @@ bindsym $mod+f exec chromium
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
 bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -196,24 +202,24 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-bar {
-
-    # status_command    python3 $HOME/.config/bar.py
-    # general
-    workspace_buttons yes
-}
 #bar {
-#        status_command i3status
-#        colors {
-#        separator #444444
-#        background #222222
-#        statusline #FFFFFF
-#        focused_workspace #CECECE #CECECE #5F8700
-#        active_workspace #333333 #333333 #888888
-#        inactive_workspace #CECECE #333333 #9E9E9E
-#        urgent_workspace #eb709b #eb709b #ffffff
-#        }
+#
+#    # status_command    python3 $HOME/.config/bar.py
+#    # general
+#    workspace_buttons yes
 #}
+bar {
+#    status_command i3status
+    colors {
+        separator #444444
+        background #222222
+        statusline #FFFFFF
+        focused_workspace #CECECE #CECECE #5F8700
+        active_workspace #333333 #333333 #888888
+        inactive_workspace #CECECE #333333 #9E9E9E
+        urgent_workspace #eb709b #eb709b #ffffff
+        }
+}
 
 # Multi-screen screenshots with scrot
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
@@ -228,3 +234,12 @@ exec --no-startup-id feh --bg-scale $HOME/wallpapers/pexels-sanaan-mazhar-307599
 for_window [class="hello"] floating enable
 bindsym $mod+w workspace next
 bindsym $mod+q workspace prev
+
+#set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/scripts/brightness.sh

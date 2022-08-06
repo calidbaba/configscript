@@ -1,4 +1,4 @@
-"/.config/nvim/bindings.vim
+"/.config/nvim/run.vim
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType javascript map <buffer> <F9> :w<CR>:!node %<CR>
@@ -13,3 +13,5 @@ autocmd FileType perl map <buffer> <F9> :w<CR>:!/usr/bin/perl %<CR>
 autocmd FileType perl imap <buffer> <F9> <esc>:w<CR>:!/usr/bin/perl %<CR>
 autocmd FileType typescript imap <buffer> <F9> <esc>:w<CR>:!tsc % && node %<.js<CR>
 autocmd FileType typescript map <buffer> <F9> <esc>:w<CR>:!tsc % && node %<.js<CR>
+autocmd FileType rust imap <buffer> <F9> <esc>:w<CR>:!cargo run<CR>
+autocmd FileType rust map <buffer> <F9> <esc>:w<CR>:!cargo run<CR>

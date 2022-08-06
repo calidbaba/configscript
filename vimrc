@@ -7,7 +7,6 @@ set number
 set laststatus=2
 syntax on
 "autocmd vimenter * ++nested colorscheme gruvbox
-colorscheme gruvbox
 set background=dark
 set mouse=a
 let mapleader =" "

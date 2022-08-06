@@ -132,6 +132,12 @@ brek(){
 pdf(){
     zathura $1 &!
 }
+#move into directory after making it
+mcd(){
+    mkdir $1 && cd $_
+}
 alias mvlast="ls -t ~/Downloads | head -n1 | sed  's/ /\\\ /g' | xargs -t -I '{}' mv $HOME/Downloads/'{}' ."
 alias vpn="sudo openconnect -bq --user=carlaar vpn.ntnu.no"
+alias rot13="tr a-zA-Z n-za-mN-ZA-M"
+alias busy='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$(wc -l $my_file | awk "{print $1}"); let "r = $RANDOM % $my_len" 2>/dev/null; vim +$r $my_file'
 
