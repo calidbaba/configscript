@@ -9,7 +9,7 @@ endfunction
 "plugins
 call SourceLocal("plug.vim")
 "language server
-call SourceLocal("coc.vim")
+"call SourceLocal("coc.vim")
 "keybindings
 call SourceLocal("bindings.vim")
 "run command on <F9> based on filetype
@@ -17,9 +17,11 @@ call SourceLocal("run.vim")
 "different functions
 call SourceLocal("functions.vim")
 
+call SourceLocal("lsp.lua")
+
 
 set encoding=utf-8
-set number
+"set number
 syntax on
 autocmd vimenter * ++nested colorscheme gruvbox
 colorscheme gruvbox
@@ -36,11 +38,13 @@ set laststatus=2
 "enables mouse
 set mouse=a
 "relativ number
-:set number relativenumber
-:set nu rnu
+"set number relativenumber
+"set nu rnu
 
 "highlight search
 set hlsearch
 
 "remove red squares in python
 let g:python_highlight_space_errors = 0
+
+

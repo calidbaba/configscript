@@ -3,16 +3,12 @@
 set nocompatible 
 
 "basic
-set number
 set laststatus=2
 syntax on
 "autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 set mouse=a
 let mapleader =" "
-"relativ number
-:set number relativenumber
-:set nu rnu
 "tab
 "set wildmode=longest,list,full
 "set wildmenu

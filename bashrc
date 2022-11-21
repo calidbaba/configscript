@@ -128,3 +128,7 @@ export funka="jaman"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH=$PATH:/home/baba/bin
+
+source '/home/baba/lib/azure-cli/az.completion'
