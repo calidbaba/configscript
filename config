@@ -22,7 +22,7 @@ new_window 1pixel
 bindsym $mod+w workspace next
 bindsym $mod+q workspace prev
 
-#exec /home/baba/battery-warning/battery.sh &
+exec /home/baba/battery-sript/battery.sh &
 
 #gimme browser on modf
 bindsym $mod+f exec chromium
