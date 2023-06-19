@@ -16,6 +16,7 @@ use 'christoomey/vim-tmux-navigator'
 use 'benmills/vimux'
 use 'tpope/vim-commentary'
 use 'folke/tokyonight.nvim'
+use 'nyngwang/NeoZoom.lua'
 
 use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',

@@ -35,9 +35,7 @@ imap('{{<CR>','{<CR>}<esc>ko')
 imap('$$', '$$<esc>i')
 nmap('<leader>h', ':nohls<CR>')
 
---tmux like zoom
--- nmap('<leader>z', require("neo-zoom").neo_zoom)
-
+--vim.keymap.set('n', '<space>z', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
 function run_program(dict)
 	local filetype = vim.bo.filetype
 	if dict[filetype] == nil then print("filetype not supported") return end
